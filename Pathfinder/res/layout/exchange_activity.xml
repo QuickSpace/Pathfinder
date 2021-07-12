@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/GridLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A30"
+    android:columnCount="4"
+    android:rowCount="12"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btnConnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_shape"
+        android:textColor="#f7028d"
+        android:layout_row="0"
+        android:onClick="onConnect"
+        android:text="@string/connect" />
+
+    <TextView
+        android:id="@+id/textStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill"
+        android:layout_marginTop="10dp"
+        android:layout_row="0"
+        android:gravity="fill_vertical"
+        android:textColor="#FFF" />
+    
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_column="0"
+        android:layout_columnSpan="4"
+        android:layout_gravity="fill"
+        android:layout_marginTop="10dp"
+        android:layout_row="1"
+        android:background="@drawable/separator_purple" />
+
+    <ListView
+        android:id="@+id/mapsListView"
+        android:layout_width="200dp"
+        android:layout_height="180dp"
+        android:layout_columnSpan="3"
+        android:layout_gravity="fill"
+        android:layout_margin="12dp"
+        android:layout_rowSpan="3"
+        android:divider="#fbb"
+        android:dividerHeight="1dp"
+        android:drawSelectorOnTop="false"
+        android:listSelector="#AAA"
+        android:textColor="#FFF" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/loadMapBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:layout_gravity="left"
+        android:background="@drawable/rounded_shape"
+        android:layout_row="2"
+        android:textColor="#f7028d"
+        android:text="@string/load"
+        android:textSize="17sp" />
+    
+    <Button
+        android:id="@+id/btnSendMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:background="@drawable/rounded_shape"
+        android:textColor="#f7028d"
+        android:layout_gravity="left"
+        android:layout_row="3"
+        android:text="@string/send"
+        android:textSize="17sp" />
+    
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_column="0"
+        android:layout_columnSpan="4"
+        android:layout_gravity="fill"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_row="5"
+        android:background="@drawable/separator_purple" />
+    
+    <EditText
+        android:id="@+id/etMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:layout_gravity="fill"
+        android:layout_row="6"
+        android:ems="10"
+        android:textColor="#FFF" >
+
+    </EditText>
+
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:background="@drawable/rounded_shape"
+        android:textColor="#f7028d"
+        android:layout_row="6"
+        android:text="@string/clear" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_column="0"
+        android:layout_columnSpan="4"
+        android:layout_gravity="fill"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_row="7"
+        android:background="@drawable/separator_purple" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_gravity="fill_horizontal|fill_vertical"
+        android:layout_row="11" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            
+            <TextView
+                android:id="@+id/textRead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnSpan="3"
+                android:layout_gravity="fill"
+                android:layout_row="8"
+                android:layout_rowSpan="3"
+                android:textColor="#FFF" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnSaveMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:layout_gravity="left"
+        android:layout_row="8"
+        android:textColor="#f7028d"
+        android:background="@drawable/rounded_shape"
+        android:text="@string/save" />
+
+</GridLayout>

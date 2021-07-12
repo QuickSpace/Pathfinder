@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item
+        android:id="@+id/loadMap"
+        android:icon="@android:drawable/ic_menu_mapmode"
+        android:showAsAction="always"
+        android:title="@string/load"/>
+        
+    <item
+        android:id="@+id/saveMap"
+        android:icon="@android:drawable/ic_menu_save"
+        android:showAsAction="always"
+        android:title="@string/save"/>
+       
+	<item
+        android:id="@+id/clearMap"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:showAsAction="always"
+        android:title="@string/clear"/>
+    	
+	<item
+        android:id="@+id/settings"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:showAsAction="ifRoom"
+        android:title="@string/settings"/>
+	
+	<item
+        android:id="@+id/mapList"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:showAsAction="ifRoom"
+        android:title="@string/map_list"/>
+	
+	<item
+        android:id="@+id/changeWeight"
+        android:icon="@android:drawable/ic_menu_rotate"
+        android:showAsAction="ifRoom"
+        android:title="@string/weight_change"/>
+	
+	<item
+        android:id="@+id/fileManager"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:showAsAction="ifRoom"
+        android:title="@string/file_manager"/>
+	
+	<item
+        android:id="@+id/speedManager"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:showAsAction="ifRoom"
+        android:title="@string/animation_speed" />
+	
+	<item
+        android:id="@+id/bluetooth"
+        android:icon="@android:drawable/ic_menu_share"
+        android:showAsAction="ifRoom"
+        android:title="@string/exchange"/>
+
+</menu>

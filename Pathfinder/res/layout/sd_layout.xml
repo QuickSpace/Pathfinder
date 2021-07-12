@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A30"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="@string/file_list"
+        android:textColor="#f7028d"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/sdListView"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:divider="#ffbf0080"
+        android:dividerHeight="1dp"
+        android:background="@drawable/rounded_shape"
+        android:drawSelectorOnTop="false"
+        android:listSelector="#C8ff0090" >
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
+        <EditText
+            android:id="@+id/sdFileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="@string/enter_file_name"
+            android:textColor="@color/white"
+            android:textSize="17sp" >
+
+       		<requestFocus />
+    	</EditText>
+        
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/fileStatus"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp" 
+        android:textColor="#f7028d"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+		android:layout_marginTop="10dp"
+        android:gravity="center_horizontal" >
+        
+        <Button
+            android:id="@+id/import_file"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:textColor="#f7028d"
+            android:background="@drawable/rounded_shape"
+            android:text="@string/import_file" />
+        
+        <Button
+            android:id="@+id/export_file"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:textColor="#f7028d"
+            android:background="@drawable/rounded_shape"
+            android:text="@string/export_file" />
+        
+        <Button
+            android:id="@+id/delete_file"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#f7028d"
+            android:background="@drawable/rounded_shape"
+            android:text="@string/delete" />
+        
+    </LinearLayout>
+
+</LinearLayout>

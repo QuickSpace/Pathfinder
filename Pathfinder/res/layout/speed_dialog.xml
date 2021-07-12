@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <SeekBar
+        android:id="@+id/speedSb"
+        android:layout_width="match_parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:max="250"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/currSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal|center_vertical"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:text="@string/current_speed" />
+
+    <Button
+        android:id="@+id/defaultOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal|center_vertical"
+        android:textSize="19sp"
+        android:textColor="@color/black"
+        android:text="@string/default_option" />
+
+</LinearLayout>

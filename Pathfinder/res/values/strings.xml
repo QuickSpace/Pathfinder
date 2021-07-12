@@ -1,0 +1,58 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<resources>
+
+    <string name = "app_name">Pathfinder</string>
+    <string name = "action_settings">Options</string>
+    <string name = "action_disconnect">Disconnect</string>
+    <string name = "load">Load</string>
+    <string name = "delete">Delete</string>
+    <string name = "close"> Close </string>
+    <string name = "connect">Connect</string>
+    <string name = "send">Send</string>
+    <string name = "clear">Clear</string>
+    <string name = "save">Save</string>
+    <string name = "bt_not_available">Bluetooth not available</string>
+    <string name = "bt_not_enabled">Bluetooth was not enabled</string>
+    <string name = "status_not_connected">Bluetooth not connected</string>
+    <string name = "status_conn_failed">Connection failed </string>
+    <string name = "status_connected_to">Connected to %s </string>
+    <string name = "settings">Application settings</string>
+    <string name = "file_system">Working with files</string>
+	<string name = "save_to_sd_card">Save to SD</string>
+    <string name = "algorithm">Select an algorithm</string>
+    <string name = "deleteObjects">Deleting objects</string>
+    <string name = "color_picker">Color picker</string>
+    <string name = "theme_selector">Theme selection</string>
+    <string name = "grid_size">Grid size</string>
+    <string name = "old_place">Old placement</string>
+    <string name = "random_color">Random color</string>
+    <string name = "weight_change">Change weights (A*)</string>
+    <string name = "exchange">Card exchange</string>
+    <string name = "file_manager">File system</string>
+    <string name = "default_gsize_message">Selected size: 16</string>
+    <string name = "developer_mode">Developer Mode</string>
+    <string name = "save_and_exit">Save and exit</string>
+    <string name = "saved_maps">Saved maps</string>
+    <string name = "execute">Ok</string>
+    <string name = "exit">Exit</string>
+    <string name = "info">Info</string>
+    <string name = "rename">Rename</string>
+    <string name = "select">Select</string>
+    <string name = "default_option">Default</string>
+    <string name = "map_list">Map list</string>
+    <string name = "file_list">List of files on SD</string>
+    <string name = "current_map">Current map</string>
+    <string name = "explorer">Open File Manager</string>
+    <string name = "enter_file_name">Enter file name</string>
+    <string name = "map_not_selected">No map selected</string>
+    <string name = "select_map">Select a map!</string>
+    <string name = "import_file">Import</string>
+    <string name = "russian">Russian </string>
+    <string name = "export_file">Export</string>
+    <string name = "delete_file">Delete</string>
+    <string name = "animation_speed">Animation speed</string>
+    <string name = "current_speed">Selected speed: </string>
+    <string name = "enter_map_name">Enter a name </string>
+    <string name = "enter_new_map_name">Enter a new name</string>
+
+</resources>

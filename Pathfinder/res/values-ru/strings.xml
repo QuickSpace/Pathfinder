@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Pathfinder</string>
+    <string name="action_settings">Параметры</string>
+    <string name="action_disconnect">Отключить</string>
+    <string name="load">Загрузить</string>
+    <string name="delete">Удалить</string>
+    <string name="close">Закрыть</string>
+    <string name="connect">Подключить</string>
+    <string name="send">Отправить</string>
+    <string name="clear">Очистить</string>
+    <string name="save">Save</string>
+    <string name="bt_not_available">Bluetooth не доступен</string>
+    <string name="bt_not_enabled">Bluetooth не был включён</string>
+    <string name="status_not_connected">Bluetooth не подключён</string>
+    <string name="status_conn_failed">Соединение прервано</string>
+    <string name="status_connected_to">Подключены к %s</string>
+    <string name="settings">Настройки приложения</string>
+    <string name="file_system">Работа с файлами</string>
+	<string name="save_to_sd_card">Сохранение на SD</string>
+    <string name="algorithm">Выбор алгоритма</string>
+    <string name="deleteObjects">Удаление объектов</string>
+    <string name="color_picker">Выбор цвета</string>
+    <string name="theme_selector">Выбор темы</string>
+    <string name="grid_size">Размер поля</string>
+    <string name="old_place">Старая постановка</string>
+    <string name="random_color">Случайный цвет</string>
+    <string name="weight_change">Изменить веса (A*)</string>
+    <string name="exchange">Обмен картами</string>
+    <string name="file_manager">Файловая система</string>
+    <string name="default_gsize_message">Выбранный размер: 16</string>
+    <string name="developer_mode">Режим разработчика</string>
+    <string name="save_and_exit">Сохранить и выйти</string>
+    <string name="saved_maps">Сохраннённые карты</string>
+    <string name="execute">Ок</string>
+    <string name="exit">Выход</string>
+    <string name="info">Инфо</string>
+    <string name="rename">Rename</string>
+    <string name="select">Выбрать</string>
+    <string name="default_option">По умолчанию</string>
+    <string name="map_list">Список карт</string>
+    <string name="file_list">Список файлов на SD</string>
+    <string name="current_map">Текущая карта</string>
+    <string name="explorer">Открыть файловый менеджер</string>
+    <string name="enter_file_name">Введите имя файла</string>
+    <string name="map_not_selected">Карта не выбрана</string>
+    <string name="select_map">Выберите карту!</string>
+    <string name="import_file">Импорт</string>
+    <string name="russian">Русск. яз.</string>
+    <string name="export_file">Экспорт</string>
+    <string name="delete_file">Удаление</string>
+    <string name="animation_speed">Скорость анимации</string>
+    <string name="current_speed">Выбранная скорость: </string>
+    <string name="enter_map_name">Введите название</string>
+    <string name="enter_new_map_name">Введите новое название</string>
+
+</resources>
