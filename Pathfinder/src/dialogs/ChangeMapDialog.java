@@ -1,6 +1,5 @@
 package dialogs;
 
-import com.example.pathfinder.MainActivity;
 import com.example.pathfinder.R;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -25,6 +24,7 @@ import android.widget.Toast;
 import databases.DBHelper;
 import databases.Field;
 import databases.SQLController;
+import pathfinder.MainActivity;
 
 public class ChangeMapDialog extends DialogFragment implements OnClickListener {
 	

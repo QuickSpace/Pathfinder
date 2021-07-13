@@ -1,6 +1,5 @@
 package dialogs;
 
-import com.example.pathfinder.MainActivity;
 import com.example.pathfinder.R;
 
 import android.app.Activity;
@@ -25,6 +24,7 @@ import android.widget.Toast;
 import databases.DBHelper;
 import databases.Field;
 import databases.SQLController;
+import pathfinder.MainActivity;
 
 public class SelectExport extends DialogFragment implements OnClickListener {
 	

@@ -10,7 +10,6 @@ import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
-import com.example.pathfinder.MainActivity;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
@@ -32,6 +31,7 @@ import entities.Node;
 import entities.Obstacle;
 import entities.SideNode;
 import math.Point;
+import pathfinder.MainActivity;
 import algorithms.*;
 
 public class AnimatePath extends View {

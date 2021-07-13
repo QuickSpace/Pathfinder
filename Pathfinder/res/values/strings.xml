@@ -27,7 +27,7 @@
     <string name = "old_place">Old placement</string>
     <string name = "random_color">Random color</string>
     <string name = "weight_change">Change weights (A*)</string>
-    <string name = "exchange">Card exchange</string>
+    <string name = "exchange">Map exchange</string>
     <string name = "file_manager">File system</string>
     <string name = "default_gsize_message">Selected size: 16</string>
     <string name = "developer_mode">Developer Mode</string>

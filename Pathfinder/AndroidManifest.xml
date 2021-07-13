@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="21"
+        android:minSdkVersion="15"
         android:targetSdkVersion="25" />
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -19,7 +19,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.pathfinder.MainActivity"
+            android:name="pathfinder.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -28,10 +28,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.pathfinder.ExchangeActivity" >
+        <activity android:name="pathfinder.ExchangeActivity" >
         </activity>
         <activity
-            android:name="com.example.pathfinder.SettingsActivity"
+            android:name="pathfinder.SettingsActivity"
             android:label="@string/settings"
             android:screenOrientation="portrait" >
         </activity>
@@ -41,7 +41,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.pathfinder.FileActivity"
+            android:name="pathfinder.FileActivity"
             android:label="@string/file_system"
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:screenOrientation="portrait" >
