@@ -129,6 +129,7 @@ public class SQLController {
 				cv.put(DBHelper.PLAYER_COLOR, ar[2]);
 				cv.put(DBHelper.TARGET_COLOR, ar[3]);
 				cv.put(DBHelper.PATH_COLOR, ar[4]);
+				id = Integer.parseInt(ar[5]);
 				if(!mode)
 					newMapId = database.insert(DBHelper.TABLE_GRIDS, null, cv);
 				else {
@@ -148,7 +149,7 @@ public class SQLController {
 				cv.put(DBHelper.CELL_X, ar[0]);
 				cv.put(DBHelper.CELL_Y, ar[1]);
 				cv.put(DBHelper.CELL_CODE, ar[2]);
-				cv.put(DBHelper.MAP_ID, id);
+				cv.put(DBHelper.MAP_ID, newMapId);
 				if(!mode)
 					database.insert(DBHelper.TABLE_ELEMENTS, null, cv);
 				else {
@@ -201,7 +202,7 @@ public class SQLController {
 			cursor.moveToFirst();
 
 		database.close();
-		int id = cursor.getInt(cursor.getColumnIndex(DBHelper.ID));
+		int id = cursor.getInt(0);
 		return id;
 	}
 
@@ -222,14 +223,14 @@ public class SQLController {
 		return getNameCount(name) > 0;
 	}
 
-	public int loadConfiguration(String name, AnimatePath ap) {
+	public int loadConfiguration(int id, AnimatePath ap) {
 		int map_id;
 		database = dbhelper.getReadableDatabase();
 
 		// чтение карты
 		// _id, mname, gsize, pcolor, tcolor, lcolor
 		String sql = "SELECT * FROM " + DBHelper.TABLE_GRIDS //
-				+ " WHERE " + DBHelper.MAP_NAME + "='" + name + "';";
+				+ " WHERE " + DBHelper.ID + "='" + id + "';";
 		Cursor c = database.rawQuery(sql, null);
 		if (c.moveToFirst()) {
 			map_id = c.getInt(0);
@@ -240,7 +241,7 @@ public class SQLController {
 		// чтение ячеек:
 		// _id, cx, cy, ct, map_id
 		sql = "SELECT * FROM " + DBHelper.TABLE_ELEMENTS //
-				+ " WHERE " + DBHelper.MAP_ID + "=" + map_id + " ORDER BY ct;";
+				+ " WHERE " + DBHelper.MAP_ID + "=" + id + ";";
 		c = database.rawQuery(sql, null);
 		if (c.moveToFirst()) {
 			ArrayList<Obstacle> obstacles = ap.getObstacles();
@@ -396,8 +397,8 @@ public class SQLController {
 		ArrayList<Cell> obstacles = readObstacles(field.id);
 		StringBuilder data = new StringBuilder();
 		data.append("#DATA:|");
-		data.append(String.format("GRID:%s;%d;%d;%d;%d|", // у тебя целые числа !
-				field.mapName, field.gsize, field.pcolor, field.tcolor, field.lcolor));
+		data.append(String.format("GRID:%s;%d;%d;%d;%d;%d|",
+				field.mapName, field.gsize, field.pcolor, field.tcolor, field.lcolor, field.id));
 		data.append(String.format("CELL:%d;%d;%d|", (int) pPos.getX(), (int) pPos.getY(), 1));
 		data.append(String.format("CELL:%d;%d;%d|", (int) tPos.getX(), (int) tPos.getY(), 2));
 		for (Cell c : obstacles) {

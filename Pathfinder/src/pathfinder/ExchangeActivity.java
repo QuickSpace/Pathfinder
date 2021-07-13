@@ -99,18 +99,18 @@ public class ExchangeActivity extends Activity implements OnClickListener {
 		// Слушатель подключения к bluetooth
 		bt.setBluetoothConnectionListener(new BluetoothConnectionListener() {
 			public void onDeviceDisconnected() {
-				textStatus.setText(R.string.status_not_connected);// "Status : Not connected"
+				textStatus.setText(R.string.status_not_connected); // "Status : Not connected"
 				btnConnect.setText(R.string.connect);
 			}
 
 			public void onDeviceConnectionFailed() {
-				textStatus.setText(R.string.status_conn_failed);// "Status : Connection failed"
+				textStatus.setText(R.string.status_conn_failed); // "Status : Connection failed"
 				btnConnect.setText(R.string.connect);
 			}
 
 			public void onDeviceConnected(String name, String address) {
 				String sss = getResources().getString(R.string.status_connected_to, name);
-				textStatus.setText(sss);// "Status : Connected to "
+				textStatus.setText(sss); // "Status : Connected to "
 				btnConnect.setText(R.string.action_disconnect);
 			}
 		});

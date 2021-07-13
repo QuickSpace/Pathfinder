@@ -170,7 +170,7 @@ public class ChangeMapDialog extends DialogFragment implements OnClickListener {
 				builder.setPositiveButton("Да", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						if (field.id > 1) { // запись default не удаляем !
+						if (field.id > 1) { // запись default не удаляем!
 							controller.deleteMap(field.id);
 							refresh();
 							((TextView) ((MainActivity) getActivity()).getDisplayState()).setText("Карта удалена!");

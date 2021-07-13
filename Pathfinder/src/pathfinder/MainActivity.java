@@ -5,14 +5,17 @@ import java.util.Locale;
 
 import com.example.pathfinder.R;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -74,6 +77,7 @@ public class MainActivity extends Activity implements OnClickListener, ColorPick
 	private boolean devMode = false; // false - using updated_menu.xml, true - menu.xml
 	private Locale locale;
 	private boolean useEnglish = false;
+	private boolean permissionGranted;
 
 	// Main view (where everything is drawn on a grid)
 	AnimatePath view;
@@ -98,6 +102,9 @@ public class MainActivity extends Activity implements OnClickListener, ColorPick
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.a_star_layout);
+		
+		ActivityCompat.requestPermissions(MainActivity.this,
+			new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
 
 		// Нахождение компонентов UI по ID
 		start = (Button) findViewById(R.id.start);
@@ -115,7 +122,6 @@ public class MainActivity extends Activity implements OnClickListener, ColorPick
 
 		controller = new SQLController(getApplicationContext());
 		view = (AnimatePath) findViewById(R.id.pathAnimator1);
-		view.setMap(field);
 		new AnimatePath(getApplicationContext());
 
 		// Assigning event handlers
@@ -200,6 +206,7 @@ public class MainActivity extends Activity implements OnClickListener, ColorPick
 			break;
 		case R.id.fileManager:
 			Intent fileManage = new Intent(getApplicationContext(), FileActivity.class);
+			fileManage.putExtra("perms", permissionGranted);
 			startActivity(fileManage);
 			break;
 		case R.id.bluetooth:
@@ -252,6 +259,16 @@ public class MainActivity extends Activity implements OnClickListener, ColorPick
 		getBaseContext().getResources().updateConfiguration(conf,
 				getBaseContext().getResources().getDisplayMetrics());
 		invalidateOptionsMenu();
+	}
+	
+	@Override
+	public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+		if (grantResults.length > 0 
+				&& grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+			permissionGranted = true;
+		} else { 	
+			permissionGranted = false;
+		}
 	}
 	
 	@Override
@@ -526,7 +543,7 @@ public class MainActivity extends Activity implements OnClickListener, ColorPick
 		view.getPath().reset();
 		view.invalidate();
 		view.setGridSize(field.gsize);
-		controller.loadConfiguration(field.mapName, view);
+		controller.loadConfiguration(field.id, view);
 		displayState.setText("Карта Загружена");
 	}
 

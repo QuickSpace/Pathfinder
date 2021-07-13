@@ -49,14 +49,13 @@ public class FileActivity extends Activity implements OnClickListener, ExportLis
 	private Intent intent;
 	private SQLController controller;
 	private StringBuilder dataString;
-	private String mapName = "";
-	private int gSize, pColor, tColor, pathColor, id;
 	
 	private int wrkMode = 1; // 0 - Импорт, 1 - Экспорт, 2 - Удаление
 	private int ttlMode[] = {R.string.import_file, R.string.export_file, R.string.delete_file};
 	
 	// Другое
 	private int selected_id = -1;
+	private int selected_export_id = -1;
 	private Field field;
 	
 	@Override
@@ -83,10 +82,18 @@ public class FileActivity extends Activity implements OnClickListener, ExportLis
 		fileStatus.setText(R.string.map_not_selected);
 		intent = getIntent();
 		wrkMode = intent.getIntExtra("mode", 0);
-		setTitle(ttlMode[wrkMode] + " & " + ttlMode[(wrkMode + 1) % ttlMode.length]);
+		setTitle(getResources().getString(ttlMode[wrkMode]) + " & " 
+				+ getResources().getString(ttlMode[(wrkMode + 1) % ttlMode.length]));
 		toggleField(false);
 		
-		pathDir = new File(Environment.getExternalStorageDirectory() + "/Android/data/Pathfinder/");
+		boolean permissionGranted = intent.getBooleanExtra("perms", true);
+		if(!permissionGranted) {
+			Toast.makeText(getApplicationContext(), 
+					"Нет разрешения на работу с паматью устройства!", Toast.LENGTH_LONG).show();
+		}
+		
+		pathDir = new File(Environment.getExternalStorageDirectory(), "/Android/data/Pathfinder/");
+		
 		if(!pathDir.exists())
 			pathDir.mkdirs();
 		
@@ -116,7 +123,14 @@ public class FileActivity extends Activity implements OnClickListener, ExportLis
 				Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 			    Uri uri = Uri.parse(Environment.getExternalStorageDirectory().getPath()
 			         + "/Android/data/Pathfinder/");
-			    startActivity(Intent.createChooser(intent, "Open folder"));
+			    intent.setDataAndType(uri, "resource/folder");
+			    if (intent.resolveActivityInfo(getPackageManager(), 0) != null)
+			    {
+			        startActivity(intent);
+			    } else {
+			    	Toast.makeText(getApplicationContext(), 
+			    			"Такой директории не существует!", Toast.LENGTH_LONG).show();
+			    }
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -143,18 +157,18 @@ public class FileActivity extends Activity implements OnClickListener, ExportLis
 	public void onClick(View v) {
 		switch(v.getId()) {
 		case R.id.import_file:
-			file = new File(pathDir + "/" + fileName);
-			if(file == null || selected_id == -1) {
+			if(selected_id == -1) {
 				Toast.makeText(getApplicationContext(), "Необходимо выбрать файл!", 
 						Toast.LENGTH_SHORT).show();
 				return;
 			}
+			file = new File(pathDir + "/" + fileName);
 			readFile(file);
 			Toast.makeText(getApplicationContext(), "Файл с именем " + fileName.substring(0, fileName.length() 
 					- EXTENSION.length()) + " был сохранён в базу данных!", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.export_file:
-			if(selected_id == -1) {
+			if(selected_export_id == -1) {
 				SelectExport seDialog = new SelectExport();
 			    seDialog.show(getFragmentManager(), "export");
 			} else {
@@ -294,10 +308,10 @@ public class FileActivity extends Activity implements OnClickListener, ExportLis
 	@Override
 	public void exportMapSelected(long id, Field field) {
 		this.field = field;
-		selected_id = (int) id;
+		selected_export_id = (int) id;
 		toggleField(true);
 		
-		fileStatus.setText(R.string.current_map + ": " + field.mapName);
+		fileStatus.setText(getResources().getString(R.string.current_map) + ": " + field.mapName);
 	}
 	
 	public boolean isSDCardAvailable() {

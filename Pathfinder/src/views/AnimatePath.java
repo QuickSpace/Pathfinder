@@ -125,23 +125,6 @@ public class AnimatePath extends View {
 		animator.start(); // вызывает setRoute
 	}
 	
-	/* public void setPath(Path p, int duration) { // spent like an hour on this part and it ended up not working at all :sadge:
-		path.reset();
-		path.addPath(p);
-		animator = ValueAnimator.ofInt(0, 100);
-		animator.setDuration(duration);
-		animator.setInterpolator(new LinearInterpolator());
-		animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-			@Override
-			public void onAnimationUpdate(ValueAnimator animation) {
-				pathPaint.setPathEffect(new DashPathEffect(dashes, (Integer) animator.getAnimatedValue()));
-				drawPath = true;
-				invalidate();
-			}
-		});
-		animator.start();
-	} */
-	
 	public void setRoute(float route) {
 		pathPaint.setPathEffect(createPathEffect(length, route, 0.0f));
 		invalidate();
@@ -160,19 +143,7 @@ public class AnimatePath extends View {
 		playerColor = field.pcolor;
 		targetColor = field.tcolor;
 		pathColor = field.lcolor;
-		setMap(gridSize, id, mapName);
-	}
-	
-	public void setMap(Field field) {
-		id = field.id;
-		gridSize = field.gsize;
-		mapName = field.mapName;
-	}	
-
-	public void setMap(int gridValue, int id, String mapName) {
-		gridSize = gridValue;
-		this.id = id;
-		this.mapName = mapName;
+		setGridSize(gridSize);
 	}
 	
 	public void setGridSize(int gridValue, int id, String mapName, Point pPos, Point tPos, int pColor, int tColor, 
@@ -661,7 +632,7 @@ public class AnimatePath extends View {
 		invalidate();
 	}
 	
-	public void setGridSize(int n/* , int oldValue */) {
+	public void setGridSize(int n) {
 		gridSize = n;
 		dd = (canvasWidth > canvasHeight ? canvasHeight - y0 : canvasWidth - x0) / gridSize;
 				
