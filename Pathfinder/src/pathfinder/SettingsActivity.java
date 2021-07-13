@@ -37,6 +37,7 @@ public class SettingsActivity extends Activity implements SeekBar.OnSeekBarChang
 	private CheckBox devModeCb, langCb;
 	private SeekBar gSizeSb;
 	private Locale locale;
+	private boolean useEnglish = false;
 	
 	// Другое
 	private Intent intent;
@@ -62,6 +63,7 @@ public class SettingsActivity extends Activity implements SeekBar.OnSeekBarChang
 		intent = getIntent();
 		gridSize = intent.getIntExtra("gridSize", 16);
 		devMode = intent.getBooleanExtra("dev_mode", false);
+		useEnglish = intent.getBooleanExtra("useEngLang", false);
 		saveAndExit = (Button) findViewById(R.id.saveAndExit);
 		saveAndExit.setOnClickListener(new OnClickListener() {
 			@Override
@@ -73,6 +75,7 @@ public class SettingsActivity extends Activity implements SeekBar.OnSeekBarChang
 				intent.putExtra("tcolor", currentTColor);
 				intent.putExtra("path_color", currentPathColor);
 				intent.putExtra("dev_mode", devMode);
+				intent.putExtra("useEng", useEnglish);
 				setResult(RESULT_OK, intent);
 				finish();
 			}
@@ -89,9 +92,10 @@ public class SettingsActivity extends Activity implements SeekBar.OnSeekBarChang
         gSizeTv = (TextView) findViewById(R.id.gridSizeStatus);
         selSize = (TextView) findViewById(R.id.selectedGSize);
         devModeCb = (CheckBox) findViewById(R.id.devModeCb);
-        langCb = (CheckBox) findViewById(R.id.langCb);
         devModeCb.setChecked(devMode);
-        langCb.setChecked(true);
+        langCb = (CheckBox) findViewById(R.id.langCb);
+        langCb.setChecked(!useEnglish);
+        setLocale(!useEnglish ? "ru" : "en");
         
         devModeCb.setOnClickListener(new View.OnClickListener() {	
 			@Override
@@ -105,8 +109,10 @@ public class SettingsActivity extends Activity implements SeekBar.OnSeekBarChang
 			public void onClick(View v) {
 				if(langCb.isChecked()) {
 					setLocale("ru");
+					useEnglish = false;
 				} else {
 					setLocale("en");
+					useEnglish = true;
 				}
 			}
 		});

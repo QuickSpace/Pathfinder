@@ -1,12 +1,15 @@
 package pathfinder;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import com.example.pathfinder.R;
 
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -43,7 +46,6 @@ import dialogs.SaveDialog.SaveDialogListener;
 import dialogs.SpeedChanger;
 import dialogs.SpeedChanger.SpeedListener;
 import dialogs.WeightDialog.WeightListener;
-import entities.Entity;
 import entities.Obstacle;
 import math.Point;
 import views.AnimatePath;
@@ -70,6 +72,8 @@ public class MainActivity extends Activity implements OnClickListener, ColorPick
 	private int algorithm = 0;
 	private int theme = 0;
 	private boolean devMode = false; // false - using updated_menu.xml, true - menu.xml
+	private Locale locale;
+	private boolean useEnglish = false;
 
 	// Main view (where everything is drawn on a grid)
 	AnimatePath view;
@@ -121,6 +125,7 @@ public class MainActivity extends Activity implements OnClickListener, ColorPick
 		algBtn.setOnClickListener(this);
 
 		state = State.PLAYER;
+		setLocale(useEnglish);
 	}
 
 	@Override
@@ -190,6 +195,7 @@ public class MainActivity extends Activity implements OnClickListener, ColorPick
 			settingsIntent.putExtra("gridSize", view.getGridSize());
 			settingsIntent.putExtra("theme", theme);
 			settingsIntent.putExtra("dev_mode", devMode);
+			settingsIntent.putExtra("useEngLang", useEnglish);
 			startActivityForResult(settingsIntent, 1);
 			break;
 		case R.id.fileManager:
@@ -236,6 +242,18 @@ public class MainActivity extends Activity implements OnClickListener, ColorPick
 		return super.onOptionsItemSelected(item);
 	}
 	
+	public void setLocale(boolean lang) {
+		locale = new Locale(!lang ? "ru" : "en");
+		Resources res = getResources();
+		DisplayMetrics dm = res.getDisplayMetrics();
+		Configuration conf = res.getConfiguration();
+		conf.locale = locale;
+		res.updateConfiguration(conf, dm);
+		getBaseContext().getResources().updateConfiguration(conf,
+				getBaseContext().getResources().getDisplayMetrics());
+		invalidateOptionsMenu();
+	}
+	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (data == null) {return;}
@@ -248,7 +266,8 @@ public class MainActivity extends Activity implements OnClickListener, ColorPick
 		    pathColor = data.getIntExtra("path_color", -1);
 		    onPickedColor(pColor, tColor, pathColor);
 		    devMode = data.getBooleanExtra("dev_mode", false);
-		    invalidateOptionsMenu();
+		    useEnglish = data.getBooleanExtra("useEng", false);
+		    setLocale(useEnglish);
 		} else
 			Toast.makeText(getApplicationContext(), "Произошла ошибка!", Toast.LENGTH_SHORT).show();
 	}
