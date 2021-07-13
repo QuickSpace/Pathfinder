@@ -1,6 +1,0 @@
-<resources>
-    
-    <dimen name="bluetooth_spp_text_size">30sp</dimen>
-    <dimen name="bluetooth_spp_padding">15dp</dimen>
-
-</resources>
