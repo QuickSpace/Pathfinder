@@ -1,10 +1,12 @@
-package com.example.pathfinder;
+package pathfinder;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
+
+import com.example.pathfinder.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;

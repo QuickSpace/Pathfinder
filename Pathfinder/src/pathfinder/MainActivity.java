@@ -1,6 +1,8 @@
-package com.example.pathfinder;
+package pathfinder;
 
 import java.util.ArrayList;
+
+import com.example.pathfinder.R;
 
 import android.app.Activity;
 import android.app.DialogFragment;

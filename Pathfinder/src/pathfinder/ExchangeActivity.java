@@ -1,10 +1,11 @@
-package com.example.pathfinder;
+package pathfinder;
 
 import com.example.bluetoothspplibrary.BluetoothSPP;
 import com.example.bluetoothspplibrary.BluetoothState;
 import com.example.bluetoothspplibrary.DeviceList;
 import com.example.bluetoothspplibrary.BluetoothSPP.BluetoothConnectionListener;
 import com.example.bluetoothspplibrary.BluetoothSPP.OnDataReceivedListener;
+import com.example.pathfinder.R;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;

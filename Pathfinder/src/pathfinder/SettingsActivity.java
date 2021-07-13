@@ -1,7 +1,9 @@
-package com.example.pathfinder;
+package pathfinder;
 
 import java.util.Locale;
 import java.util.Random;
+
+import com.example.pathfinder.R;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -89,6 +91,7 @@ public class SettingsActivity extends Activity implements SeekBar.OnSeekBarChang
         devModeCb = (CheckBox) findViewById(R.id.devModeCb);
         langCb = (CheckBox) findViewById(R.id.langCb);
         devModeCb.setChecked(devMode);
+        langCb.setChecked(true);
         
         devModeCb.setOnClickListener(new View.OnClickListener() {	
 			@Override
